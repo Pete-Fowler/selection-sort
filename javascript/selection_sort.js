@@ -1,5 +1,26 @@
+/*
+PROBLEM: Take an array of numbers and sort it from lowest to highest.
+APPROACH: Both input and output are an array of numbers.
+Iterate through the array
+  store the first value in variable lowest
+  if next number is less than lowest
+    lowest = next
+OR
+iterate through array
+  apply Math.min() 
+  push value onto another array
+
+Second option seems cleaner
+*/
 function selectionSort(arr) {
-  // type your code here
+  const newArr = [];
+  while (arr.length > 0) {
+    const low = Math.min(...arr);
+    const ind = arr.indexOf(low);
+    newArr.push(low);
+    arr.splice(ind, 1);
+  }
+  return newArr;
 }
 
 if (require.main === module) {
@@ -19,5 +40,3 @@ if (require.main === module) {
 
 module.exports = selectionSort;
 
-// Please add your pseudocode to this file
-// And a written explanation of your solution
